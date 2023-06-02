@@ -45,7 +45,7 @@ class BST {
       return (l > r) ? l + 1 : r + 1;
     }
   }
-  
+
  public:
   BST() {}
   void Add(const T& val) {
