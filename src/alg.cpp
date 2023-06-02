@@ -23,13 +23,13 @@ BST<std::string> makeTree(const char* filename) {
       str += chr;
     } else {
       if (!str.empty()) {
-        tree.add(str);
+        tree.Add(str);
       }
       str.clear();
     }
   }
   if (!str.empty()) {
-    tree.add(str);
+    tree.Add(str);
   }
   file.close();
   return tree;
