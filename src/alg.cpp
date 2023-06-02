@@ -5,6 +5,32 @@
 #include  <cstdlib>
 #include  "bst.h"
 
+
 BST<std::string> makeTree(const char* filename) {
   // поместите сюда свой код
+  BST<std::string> tree;
+  std::ifstream file(filename);
+  if (!file) {
+    std::cout << "Ошибка файла" << std::endl;
+    return tree;
+  }
+  std::string str;
+  while (!file.eof()) {
+    char chr = file.get();
+    if (chr >= 'A' && chr <= 'Z') {
+      str += std::tolower(chr);
+    } else if (chr >= 'a' && chr <= 'z') {
+      str += chr;
+    } else {
+      if (!str.empty()) {
+        tree.add(str);
+      }
+      str.clear();
+    }
+  }
+  if (!str.empty()) {
+    tree.add(str);
+  }
+  file.close();
+  return tree;
 }
